@@ -1,4 +1,6 @@
 import 'package:contacts/provider/users.dart';
+import 'package:contacts/routes/app_routes.dart';
+import 'package:contacts/views/user_form.dart';
 import 'package:contacts/views/user_list.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -19,12 +21,14 @@ class MyApp extends StatelessWidget {
         )
       ],
       child: MaterialApp(
-        title: 'Flutter User List',
-        theme: ThemeData(
-          primarySwatch: Colors.purple,
-        ),
-        home: const UserList(),
-      ),
+          title: 'Flutter User List',
+          theme: ThemeData(
+            primarySwatch: Colors.purple,
+          ),
+          routes: {
+            AppRoutes.HOME: (_) => const UserList(),
+            AppRoutes.USER_FORM: (_) => UserForm(),
+          }),
     );
   }
 }
